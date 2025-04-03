@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create</title>
+    <link rel="stylesheet" href="./css/milligram.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <label>Product Name</label>
+                <input id="ProductName"  type="text">
+                <label>Product Code</label>
+                <input id="ProductCode"  type="text">
+                <label>Product Image</label>
+                <input id="ProductImg"  type="text">
+                <label>Unit Price</label>
+                <input id="UnitPrice"  type="text">
+                <label>Product Qty</label>
+                <input id="ProductQty"  type="text">
+                <label>Product total</label>
+                <input id="ProductTotal"  type="text">
+                <button onclick="CreateData()">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function CreateData()
+        {
+             let ProductName=document.getElementById('ProductName').value;
+             let ProductCode=document.getElementById('ProductCode').value;
+             let ProductImg=document.getElementById('ProductImg').value;
+             let UnitPrice=document.getElementById('UnitPrice').value;
+             let ProductQty=document.getElementById('ProductQty').value;
+             let ProductTotal=document.getElementById('ProductTotal').value;
+
+            let URL="https://crud.teamrabbil.com/api/v1/CreateProduct"
+
+             let dataOb={
+                Img:ProductImg,
+                ProductCode:ProductCode,
+                ProductName:ProductName,
+                Qty:ProductQty,
+                TotalPrice:ProductTotal,
+                UnitPrice:UnitPrice
+             }
+            await axios.post(URL,dataOb)
+            window.location="index.html"
+        }
+
+    </script>
+
+</body>
+</html>

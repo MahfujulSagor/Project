@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/milligram.css">
+</head>
+<body>
+    <a href="create.html" class="button button-outline float-left">Create New</a>
+    <div class="container">
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Code</th>
+                        <th>Unit Price</th>
+                        <th>Qty</th>
+                        <th>Total Price</th>
+                        <th>Delete</th>
+                        <th>update</th>
+                    </tr>
+                </thead>
+                <tbody id="itemList">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function getList()
+        {
+            let URL="https://crud.teamrabbil.com/api/v1/ReadProduct"
+            let res=await axios(URL)
+            let list=res.data['data']
+            list.forEach((item) => {
+                document.getElementById('itemList').innerHTML+=(`<tr>
+                    <td>${item['ProductName']}</td>
+                    <td>${item['ProductCode']}</td>
+                    <td>${item['UnitPrice']}</td>
+                    <td>${item['Qty']}</td>
+                    <td>${item['TotalPrice']}</td>
+                    <td> <button onclick="DeleteItem('${item['_id']}')">Delete</button> </td>
+                    <td> <button onclick="goForUpdate('${item['_id']}')">Update</button></td>
+
+
+                    </tr>`)
+            });
+        }
+        getList()
+
+
+
+
+
+
+        async function DeleteItem(id)
+        {
+            let URL=`https://crud.teamrabbil.com/api/v1/DeleteProduct/${id}`
+            let res=await axios(URL)
+            window.location.reload();
+        }
+        function goForUpdate(id){
+            window.location=`update.html?id=${id}`
+        }
+    </script>
+</body>
+</html>
