@@ -66,12 +66,34 @@ ul{
 }
 ul li{
     margin: 10px 0px;
-    font-size: 24px;
     width: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
     background-color: #0D1224;
-    color: white;
     padding: 10px 20px;
     border-radius: 10px;
+
+}
+ul li div{
+    font-size: 24px;
+    color: white;
+    display: inline-block;
+   word-wrap: break-word;
+}
+ul li .tName{
+    width: 75%;
+}
+ul li .act{
+    width: 30%;
+}
+ul li input{
+    width: 70%;
+    font-size: 15px !important;
+}
+ul li .updateBtn{
+    font-size: 15px !important;
 }
 /* ul li:hover{
     background-color: #192a56;
@@ -84,12 +106,23 @@ ul li span{
     border-radius: 50%;
     width: 30px;
 }
+ul li div button{
+    color: white;
+    font-size: 15px !important;
+    padding: 5px !important;
+    width: 50% !important;
+    margin-left: 15%;
+}
 ul li span:hover{
     background-color: red;
     color: white;
 }
 .checked{
     background-color: #3b3f4a;
+    color: white;
+  
+}
+.checked .tName{
     text-decoration: line-through;
 }
 
