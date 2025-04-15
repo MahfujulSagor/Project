@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    background: linear-gradient(90deg,rgb(3, 2, 22) 0%, rgb(20, 20, 49) 44%,#0D1224);
+}
+.main{
+   
+    margin: 100px auto 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    max-width: 800px;
+    background-color: azure;
+    padding: 30px;
+    border-radius: 10px;
+}
+.main h2{
+    font-size: 28px;
+}
+.todo{
+    margin: 10px;
+    width: 90%;
+
+}
+.todo input{
+    width: 80%;
+    outline: none;
+    background-color: beige;
+    border: none;
+    font-size: 24px;
+    padding:10px 20px ;
+    border-radius: 10px;
+}
+.todo button{
+    width: 16%;
+    outline: none;
+    font-size: 24px;
+    padding:10px  ;
+    border-radius: 10px;
+    background-color: tomato;
+    outline: 0;
+    border: 0;
+}
+.todo button:hover{
+    background-color: rgb(219, 52, 23);
+}
+#msg{
+    display: inline-block;
+    margin: 10px 30%;
+    text-align: center;
+    border: 1px solid red;
+    padding: 5px 20px;
+    border-radius: 10px;
+    display: none;
+}
+ul{
+    list-style-type: none;
+    position: relative;
+    margin-top: 20px;
+}
+ul li{
+    margin: 10px 0px;
+    font-size: 24px;
+    width: 97%;
+    background-color: #0D1224;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+/* ul li:hover{
+    background-color: #192a56;
+} */
+ul li span{
+    float: right;
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    width: 30px;
+}
+ul li span:hover{
+    background-color: red;
+    color: white;
+}
+.checked{
+    background-color: #3b3f4a;
+    text-decoration: line-through;
+}
+

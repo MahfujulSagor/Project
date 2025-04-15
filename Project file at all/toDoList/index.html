@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do app</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h2>To do list</h2>
+      <div class="todo">
+        <input id="taskInput" type="text" placeholder="Enter your task" />
+        <button id="addBtn">Add</button>
+        <p id="msg">Enter some task</p>
+        <ul id="list"></ul>
+      </div>
+    </div>
+    <script>
+      const task = document.getElementById("taskInput");
+      const addBtn = document.getElementById("addBtn");
+      let ul = document.getElementById("list");
+
+      function tasking() {
+        if (task.value == "") {
+          document.getElementById("msg").style.display = "block";
+        } else {
+          document.getElementById("msg").style.display = "none";
+          let li = document.createElement("li");
+          li.innerHTML = `${task.value}<span>x</span>`;
+          ul.appendChild(li);
+          localStorage.setItem("data", ul.innerHTML);
+          task.value = "";
+        }
+      }
+      task.addEventListener("keypress",(event)=>{
+        if(event.key=="Enter")
+            tasking();
+      })
+      addBtn.addEventListener("click",tasking);
+      ul.addEventListener("click", (e) => {
+        if (e.target.tagName === "LI") {
+          e.target.classList.toggle("checked");
+          localStorage.setItem("data", ul.innerHTML);
+        } else if (e.target.tagName === "SPAN") e.target.parentElement.remove();
+        localStorage.setItem("data", ul.innerHTML);
+      });
+      ul.innerHTML = localStorage.getItem("data");
+    
+    </script>
+  </body>
+</html>
